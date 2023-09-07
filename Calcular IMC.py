@@ -1,25 +1,46 @@
 
-altura = float(input("Altura: "))
-peso = float(input("Peso: "))
+while True:
 
-exponencial = pow(altura, 2)
+    print()
+    altura = float(input("Altura: "))
+    peso = float(input("Peso: "))
 
-indiceIMC=(peso/exponencial)
-indiceIMC = round(indiceIMC,1)
+    alturaExponencial = pow(altura, 2)
 
+    pesoIdealMenor = (18.5 * alturaExponencial)
+    pesoIdealMedio = (21.7 * alturaExponencial)
+    pesoIdealMaior = (24.9 * alturaExponencial)
 
-print()
-print("Seu índice IMC é: ",indiceIMC)
+    pesoIdealMenor = round(pesoIdealMenor,1)
+    pesoIdealMedio = round(pesoIdealMedio,1)
+    pesoIdealMaior = round(pesoIdealMaior,1)
 
-if indiceIMC < 18.5:
-    print("Você está abaixo do peso.")
-    print("Consulte um nutricionista!")
-elif 18.5 <= indiceIMC < 24.9:
-    print("Você está normal.")
-    print("Continue assim!")
-elif 24.9 <= indiceIMC < 29.9:
-    print("Você está com sobrepeso.")
-    print("Faça execicios regularmente!")
-else:
-    print("Você está com Obesidade")
-    print("Consulte um nutricionista e vá para a academia.")
+    indiceIMC=(peso/alturaExponencial)
+    indiceIMC = round(indiceIMC,1)
+
+    print()
+    print("Seu índice IMC é: ",indiceIMC)
+
+    if indiceIMC < 18.5:
+        print("Você está abaixo do peso.")
+        
+    elif 18.5 <= indiceIMC < 24.9:
+        print("Você está com peso normal.")
+        
+    elif 24.9 <= indiceIMC < 29.9:
+        print("Você está com sobrepeso.")
+        
+    else:
+        print("Você está com Obesidade")
+
+    print()
+    print("Mantenha seu peso entre:")
+    print("(Minimo):",pesoIdealMenor," Kg")
+    print("(Medio) :",pesoIdealMedio," Kg")
+    print("(Maximo):",pesoIdealMaior," Kg")
+    
+    print()
+    reiniciar = input("Realizar novo calculo (S/N)? ").strip().lower()
+    if reiniciar != "s":
+        break
+
