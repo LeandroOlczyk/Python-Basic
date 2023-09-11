@@ -16,8 +16,8 @@ def CalcularValorFuturo():
     # Aplicar arredondamento.
     valorFuturo=round(valorFuturo,2)
     
-    msg='Valor Futuro: ',valorFuturo
-    return msg
+    print('Valor Futuro: ',valorFuturo)
+    return 0
 
 # Calular Valor Presente de uma Aplicação Financeira
 def CalcularValorPresente():
@@ -35,8 +35,8 @@ def CalcularValorPresente():
     # Aplicar arredondamento.
     valorPresente=round(valorPresente,2)
 
-    msg='Valor Presente: ',valorPresente
-    return msg
+    print('Valor Presente: ',valorPresente)
+    return 0
 
 # Calcular a Taxa necessária para atingir o Valor Futuro desejado.
 def CalcularTaxaAplicacao():
@@ -53,8 +53,8 @@ def CalcularTaxaAplicacao():
     taxa=(taxa*100)
     taxa=round(taxa,4)
 
-    msg='Taxa: ',taxa,' %'
-    return msg
+    print('Taxa: ',taxa,' %')
+    return 0
 
 def switch(case):
     switcher = {
@@ -63,13 +63,24 @@ def switch(case):
         3: CalcularTaxaAplicacao,
     }
     
-    # Obter a função correspondente ao caso
+    # Obter a função correspondente
     funcao = switcher.get(case, lambda: "Opção inválida. Por favor, escolha uma opção válida.")
-    
-    # Executar a função e retornar o resultado
     return funcao()
 
-# Exemplo de uso
-opcao = int(input("Digite o número da opção desejada: "))
-resultado = switch(opcao)
-print(resultado)
+# Inicio da Execução
+while True:
+
+    print('Selecione a Opção de Calculo desejada:')
+    print()
+    print('1 - Calcular Valor Futuro.')
+    print('2 - Calcular Valor Presente.')
+    print('3 - Calcular Taxa de Rendimento.')
+    print()
+    opcao = int(input("Opção: "))
+
+    switch(opcao)
+
+    print()
+    reiniciar = input("Realizar novo calculo (S/N)? ").strip().lower()
+    if reiniciar != "s":
+        break
