@@ -1,3 +1,6 @@
+# Calcular Índice de Massa Corporal
+
+import os
 
 while True:
 
@@ -41,6 +44,9 @@ while True:
     
     print()
     reiniciar = input("Realizar novo calculo (S/N)? ").strip().lower()
+    
+    os.system('clear')
+
     if reiniciar != "s":
         break
 

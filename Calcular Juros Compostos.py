@@ -1,5 +1,7 @@
 # Formulas Financeiras de Matemática Financeira
 
+import os
+
 # Calcular o Valor Futuro de Resgate de uma Aplicação
 def CalcularValorFuturo():
 
@@ -82,5 +84,8 @@ while True:
 
     print()
     reiniciar = input("Realizar novo calculo (S/N)? ").strip().lower()
+    
+    os.system('clear')
+
     if reiniciar != "s":
         break
