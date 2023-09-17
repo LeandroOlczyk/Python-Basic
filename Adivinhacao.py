@@ -12,7 +12,7 @@ limite_minimo = 1
 limite_maximo = 100
 
 numero_aleatorio = int(random.randint(limite_minimo, limite_maximo))  # Gerando um número aleatório entre 1 e 100.
-print(numero_aleatorio)
+print()
 
 # Função para solicitar e validar a tentativa.
 def TentativaDeAdivinhacao(numero_aleatorio, limite_minimo, limite_maximo):
