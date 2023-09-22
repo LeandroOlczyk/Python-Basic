@@ -11,9 +11,7 @@ def TentativaDeAdivinhacao(numero_aleatorio, limite_minimo, limite_maximo):
     tentativa = int(input("Tente um número entre {} e {}: ".format(limite_minimo,limite_maximo)))
 
     # Validação para conferir a diferença entre positiva entre os números e definir se está muito perto ou muito longe.
-    quente_ou_frio = (numero_aleatorio - tentativa)
-    if (quente_ou_frio < 0):
-        quente_ou_frio = -quente_ou_frio
+    quente_ou_frio = abs(numero_aleatorio - tentativa)
 
     # Valida se ocorreu a vitória.
     if (tentativa == numero_aleatorio):
@@ -46,7 +44,7 @@ def MensagemFinal(tentativa):
     if (tentativa == 1):
         print("Em {} Tentativa! Impossível! - [Thanos]".format(tentativa))
     elif (tentativa <= 3):
-        print("Em {} Tentativas! Que satisfação, aspira! = [Coronel Otávio]".format(tentativa))
+        print("Em {} Tentativas! Que satisfação, aspira! - [Coronel Otávio]".format(tentativa))
     elif (tentativa <= 4):
         print("Em {} Tentativas! Elementar, meu caro Watson! - [Scherlock Holmes]".format(tentativa))
     elif (tentativa <= 5):
