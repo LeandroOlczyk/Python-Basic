@@ -8,29 +8,29 @@ while True:
     altura = float(input("Altura: "))
     peso = float(input("Peso: "))
 
-    alturaExponencial = pow(altura, 2)
+    altura_exponencial = pow(altura, 2)
 
-    pesoIdealMenor = (18.5 * alturaExponencial)
-    pesoIdealMedio = (21.7 * alturaExponencial)
-    pesoIdealMaior = (24.9 * alturaExponencial)
+    peso_ideal_menor = (18.5 * altura_exponencial)
+    peso_ideal_medio = (21.7 * altura_exponencial)
+    peso_ideal_maior = (24.9 * altura_exponencial)
 
-    pesoIdealMenor = round(pesoIdealMenor,1)
-    pesoIdealMedio = round(pesoIdealMedio,1)
-    pesoIdealMaior = round(pesoIdealMaior,1)
+    peso_ideal_menor = round(peso_ideal_menor,1)
+    peso_ideal_medio = round(peso_ideal_medio,1)
+    peso_ideal_maior = round(peso_ideal_maior,1)
 
-    indiceIMC=(peso/alturaExponencial)
-    indiceIMC = round(indiceIMC,1)
+    indice_IMC=(peso/altura_exponencial)
+    indice_IMC = round(indice_IMC,1)
 
     print()
-    print("Seu índice IMC é: ",indiceIMC)
+    print("Seu índice IMC é: ",indice_IMC)
 
-    if indiceIMC < 18.5:
+    if indice_IMC < 18.5:
         print("Você está abaixo do peso.")
         
-    elif 18.5 <= indiceIMC < 24.9:
+    elif 18.5 <= indice_IMC < 24.9:
         print("Você está com peso normal.")
         
-    elif 24.9 <= indiceIMC < 29.9:
+    elif 24.9 <= indice_IMC < 29.9:
         print("Você está com sobrepeso.")
         
     else:
@@ -38,9 +38,9 @@ while True:
 
     print()
     print("Mantenha seu peso entre:")
-    print("(Minimo):",pesoIdealMenor," Kg")
-    print("(Medio) :",pesoIdealMedio," Kg")
-    print("(Maximo):",pesoIdealMaior," Kg")
+    print("(Minimo):",peso_ideal_menor," Kg")
+    print("(Medio) :",peso_ideal_medio," Kg")
+    print("(Maximo):",peso_ideal_maior," Kg")
     
     print()
     reiniciar = input("Realizar novo calculo (S/N)? ").strip().lower()

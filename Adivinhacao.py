@@ -1,18 +1,8 @@
 # Adivinha um número inteiro que o usuário esteja pensando.
 
 import random
+import os
 import time
-
-print("************************************")
-print("* Bem vindo ao jogo de Adivinhação *")
-print("************************************")
-
-# Configuração da geração dos números aleatórios.
-limite_minimo = 1
-limite_maximo = 100
-
-numero_aleatorio = int(random.randint(limite_minimo, limite_maximo))  # Gerando um número aleatório entre 1 e 100.
-print()
 
 # Função para solicitar e validar a tentativa.
 def TentativaDeAdivinhacao(numero_aleatorio, limite_minimo, limite_maximo):
@@ -50,12 +40,70 @@ def TentativaDeAdivinhacao(numero_aleatorio, limite_minimo, limite_maximo):
     # Fim da função
     return retorno
 
+# Mensagens de motivação ao final da partida.
+def MensagemFinal(tentativa):
+    
+    if (tentativa == 1):
+        print("Em {} Tentativa! Impossível! - [Thanos]".format(tentativa))
+    elif (tentativa <= 3):
+        print("Em {} Tentativas! Que satisfação, aspira! = [Coronel Otávio]".format(tentativa))
+    elif (tentativa <= 4):
+        print("Em {} Tentativas! Elementar, meu caro Watson! - [Scherlock Holmes]".format(tentativa))
+    elif (tentativa <= 5):
+        print("Em {} Tentativas! Boa Zero Meia! Padrão! - [Capitão Nascimento]'".format(tentativa))
+    elif (tentativa <= 6):
+        print("Em {} Tentativas! Vamos colocar um sorriso nesse rosto! - [Coringa]".format(tentativa))
+    elif (tentativa <= 7):
+        print("Em {} Tentativas! Wilsoooooooonnnnnnnn! - [O Náufrago]".format(tentativa))
+    elif (tentativa <= 8):
+        print("Em {} Tentativas! Não vai subir ninguém! '- [Capitão Nascimento]'".format(tentativa))
+    elif (tentativa <= 9):
+        print("Em {} Tentativas! A culpa é minha e eu coloco em quem eu quiser! - [Homer Simpson]".format(tentativa))
+    elif (tentativa <= 10):
+        print("Em {} Tentativas! Houston, we have a problem - [Apollo]".format(tentativa))
+    else: 
+        print("Em {} Tentativas! Pede pra Sair - [Capitão Nascimento]".format(tentativa))
+
 # Início do jogo.
-while True:
+def main():
+    print("************************************")
+    print("* Bem vindo ao jogo de Adivinhação *")
+    print("************************************")
 
-    resultado = TentativaDeAdivinhacao(numero_aleatorio, limite_minimo, limite_maximo)
-    print()
+    # Animação de Aguarde.
+    time.sleep(1.5)
+    print() 
+    
+    while True:
+        print("------------------------------------")
+        print("  Uma nova rodada vai para Começar  ")
+        print("------------------------------------")
+        print()
 
-    if (resultado == True):
-        time.sleep(5)
-        break
+        # Configuração da geração dos números aleatórios.
+        limite_minimo,limite_maximo = 1, 100
+        # Gerando um número aleatório entre 1 e 100.
+        numero_aleatorio = int(random.randint(limite_minimo, limite_maximo))  
+        tentativa = 0
+
+        while True:
+            tentativa=tentativa + 1
+            resultado = TentativaDeAdivinhacao(numero_aleatorio, limite_minimo, limite_maximo)
+            print()
+
+            if resultado:
+                break
+        
+        MensagemFinal(tentativa)
+        print()
+
+        nova_partida = input("Iniciar Nova Partida (S/N)? ").strip().lower()
+        os.system('clear')
+
+        if nova_partida != "s":
+            print("Fim de Jogo!")
+            time.sleep(2)
+            break
+
+if __name__ == "__main__":
+    main()
