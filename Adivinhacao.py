@@ -69,12 +69,12 @@ def main():
     print("************************************")
 
     # Animação de Aguarde.
-    time.sleep(1.5)
+    time.sleep(1)
     print() 
     
     while True:
         print("------------------------------------")
-        print("  Uma nova rodada vai para Começar  ")
+        print("       Nova Partida Iniciada       ")
         print("------------------------------------")
         print()
 
@@ -96,6 +96,7 @@ def main():
         print()
 
         nova_partida = input("Iniciar Nova Partida (S/N)? ").strip().lower()
+        
         os.system('clear')
 
         if nova_partida != "s":

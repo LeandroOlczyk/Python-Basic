@@ -1,12 +1,21 @@
 # Calcular Índice de Massa Corporal
 
 import os
+import time
 
 while True:
 
-    print()
-    altura = float(input("Altura: "))
-    peso = float(input("Peso: "))
+    while True:
+        
+        print()
+        try: 
+            altura = float(input("Altura: "))
+            peso = float(input("Peso: "))
+            break
+        except:
+            print("Utilize ponto ao invés de virgula.")
+            time.sleep(3)
+            os.system('clear')
 
     altura_exponencial = pow(altura, 2)
 
