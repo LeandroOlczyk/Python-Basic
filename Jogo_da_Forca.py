@@ -1,44 +1,54 @@
-# Classico jogo da Forca, tente adivinhar a palavra em até 7 tentativas
-
 import os
 import time
 
-## JOGO EM FASE DE DESENVOLVIMENTO
-
 def main():
     print("***********************************")
-    print("*   Bem vindo ao jogo da Forca    *")
+    print("*   Bem-vindo ao jogo da Forca    *")
     print("***********************************")
+    print()
 
-    # Animação de Aguarde.
     time.sleep(1)
-    print() 
 
     # Palavra secreta sempre será em caixa alta.
-    palavra_secreta = "Banana"
-    palavra_secreta = palavra_secreta.upper()
+    palavra_secreta = "aguardente".upper()
 
-    # iniciando variáveis de fim de jogo.
-    enforcou = False
+    # Inicializando letras_acertadas com underscores
+    letras_acertadas = ["_"] * len(palavra_secreta)
+
+    tamanho = len(palavra_secreta)
+    print(f"Uma palavra com {tamanho} letras! ")
+
+    # Iniciando variáveis de fim de jogo.
     venceu = False
+    tentativas = 7
 
-    while not enforcou and not venceu:
+    while tentativas > 0 and not venceu:
+        # Exibindo a lista de letras acertadas
+        print(" ".join(letras_acertadas))
 
-        #Solicita input para o usuário, remove espaços e converte em caixa alta.
-        chute_usuario = input("Informe uma letra para adivinhar a Palavra: ").strip().upper()
+        # Solicitando input para o usuário, removendo espaços e convertendo em caixa alta.
+        chute_usuario = input("Informe uma letra: ").strip().upper()
 
-        exibicao = ""
-        for letra in palavra_secreta:
-            
-            if chute_usuario == letra:
-                exibicao = exibicao + letra
-            else:
-                exibicao = exibicao + " _ "
-            
-        print(exibicao)
-            
-    
-    time.sleep(2)
+        if chute_usuario in palavra_secreta:
+            for i, letra in enumerate(palavra_secreta):
+                if chute_usuario == letra:
+                    letras_acertadas[i] = letra
+            print(f"Parabéns, acertou a letra {chute_usuario}")
+        else:
+            tentativas -= 1
+            print(f"Não foi dessa vez. Restam {tentativas} tentativas!")
+
+        print()
+
+        if "_" not in letras_acertadas:
+            venceu = True
+
+    if venceu:
+        print(f"Parabéns, você ganhou! A palavra era: {palavra_secreta}")
+    else:
+        print(f"Você perdeu! A palavra era: {palavra_secreta}")
+
+    time.sleep(5)
 
 if __name__ == "__main__":
     main()
